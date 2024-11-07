@@ -2,7 +2,7 @@ name: Build and Deploy
 on:
   push:
     branches:
-      - main # or master, depending on your default branch
+      - main
 
 permissions:
   contents: write
@@ -12,11 +12,28 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Create js directory
+        run: mkdir -p js
 
       - name: Create config file
         run: |
-          echo "const CONFIG = { RAPIDAPI_KEY: '${{ secrets.RAPIDAPI_KEY }}' };" > config.js
+          echo "const CONFIG = {" > js/config.js
+          echo "  RAPIDAPI_KEY: '${{ secrets.RAPIDAPI_KEY }}'" >> js/config.js
+          echo "};" >> js/config.js
+
+      - name: List files
+        run: |
+          echo "Current directory structure:"
+          ls -R
+          echo "Contents of config.js:"
+          cat js/config.js
 
       - name: Deploy
         uses: JamesIves/github-pages-deploy-action@v4
