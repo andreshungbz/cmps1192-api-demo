@@ -1,0 +1,96 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap');
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Roboto Condensed';
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: white;
+  margin: 0;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  width: 600px;
+  background-color: rgb(198, 255, 255);
+  margin: 25px 0;
+}
+
+header,
+footer {
+  background-color: darkcyan;
+  color: rgb(244, 255, 255);
+}
+
+header,
+section {
+  padding: 15px 25px;
+}
+
+footer {
+  padding: 5px;
+  display: flex;
+  justify-content: center;
+}
+
+footer a:link {
+  color: rgb(189, 255, 255);
+}
+
+code {
+  display: block;
+  padding: 5px;
+  background-color: rgba(255, 255, 255, 0.75);
+  margin-top: 5px;
+  color: darkcyan;
+}
+
+section code:first-of-type {
+  margin-top: 0;
+}
+
+.flex-side {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+img {
+  height: 50px;
+  background-color: darkcyan;
+}
+
+span[id] {
+  font-weight: bold;
+  color: darkcyan;
+}
+
+main section:nth-of-type(even) {
+  background-color: rgb(162, 232, 232);
+}
+
+h2 {
+  margin-top: 0;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.description {
+  font-size: 0.9em;
+}
+
+form {
+  padding: 20px 0 0 0;
+}
+
+@media screen and (max-width: 650px) {
+  main {
+    width: 100%;
+    margin: 0;
+  }
+}

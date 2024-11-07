@@ -3,9 +3,81 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Index</title>
+    <link href="styles.css" rel="stylesheet" />
+    <script src="config.js"></script>
+    <script src="script.js" defer></script>
+    <title>CMPS1192 Lab 7</title>
   </head>
   <body>
-    <h1>Hello world</h1>
+    <main>
+      <header>
+        <h1>OSI Model - Application Layer</h1>
+        <p>
+          Andres Hung & Jennessa Sierra<br />
+          CMPS1192 - Networking Fundamentals<br />
+          November 14, 2024
+        </p>
+        <p class="description">
+          For the lab on the topmost 7th layer of the OSI Model, the Application
+          Layer, the Hyper Text Transport Protocol (HTTP) is examined. The
+          JavaScript Fetch API is one built upon the protocol, and it is used to
+          demonstrate the GET method. For best results ensure adblockers are
+          disabled.
+        </p>
+      </header>
+      <section>
+        <h2>Location</h2>
+        <code>https://api.ipify.org?format=json</code>
+        <code
+          >https://ip-geolocation-ipwhois-io.p.rapidapi.com/json/?ip=${ip}</code
+        >
+        <p>Your IP Address: <span id="ipaddress"></span></p>
+        <div class="flex-side">
+          <img id="countryflag" src="" alt="Your country flag" />
+          <p>
+            You are from <span id="country"></span>, <span id="city"></span> in
+            <span id="region"></span>!
+          </p>
+        </div>
+      </section>
+      <section>
+        <h2>Weather</h2>
+        <code
+          >https://community-open-weather-map.p.rapidapi.com/find?q=${city}&units=imperial</code
+        >
+        <div class="flex-side">
+          <img id="weather_icon" src="" alt="Weather icon" />
+          <p>
+            The weather at your location: <span id="weather"></span> with a
+            temperature of <span id="temp"></span>°F (feels like
+            <span id="feels_like"></span>°F)
+          </p>
+        </div>
+      </section>
+      <section>
+        <h2>Random Joke</h2>
+        <code>https://official-joke-api.appspot.com/random_joke</code>
+        <p id="setup"></p>
+        <p id="punchline"></p>
+      </section>
+      <section>
+        <h2>Demographic Prediction</h2>
+        <code>https://api.agify.io?name=${name}</code>
+        <code>https://api.genderize.io?name=${name}</code>
+        <code>https://api.nationalize.io?name=${name}</code>
+        <form name="demographic" method="GET">
+          <label for="name">Enter your Name</label>
+          <input type="text" name="name" required />
+          <input type="submit" />
+        </form>
+        <p>Name: <span id="name"></span></p>
+        <p>Age Prediction: <span id="age"></span></p>
+        <p>Gender Prediction: <span id="gender"></span></p>
+        <p>Nationality Prediction: <span id="nationality"></span></p>
+      </section>
+      <footer>
+        <a href="https://github.com/andreshungbz/cmps1192-api-demo">GitHub</a>
+      </footer>
+    </main>
   </body>
 </html>
