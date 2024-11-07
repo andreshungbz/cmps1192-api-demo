@@ -61,8 +61,6 @@ const fetchDemographic = async (name) => {
 // Main Program
 
 const main = async () => {
-  const rapidAPIKey = '';
-
   // IP Address
 
   const ipAddress = await fetchIPAddress(); // ip string
