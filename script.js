@@ -61,6 +61,8 @@ const fetchDemographic = async (name) => {
 // Main Program
 
 const main = async () => {
+  const RAPIDAPI_KEY = '044e648b19mshfece6f865ead2b3p1a1a7ajsn036a4345378f';
+
   // IP Address
 
   const ipAddress = await fetchIPAddress(); // ip string
@@ -70,7 +72,7 @@ const main = async () => {
 
   // Location
 
-  const locationInfo = await fetchLocation(ipAddress, CONFIG.RAPIDAPI_KEY); // location object
+  const locationInfo = await fetchLocation(ipAddress, RAPIDAPI_KEY); // location object
 
   const countryFlag = document.querySelector('#countryflag');
   countryFlag.setAttribute('src', locationInfo.country_flag);
@@ -83,10 +85,7 @@ const main = async () => {
 
   // Weather
 
-  const weatherInfo = await fetchWeather(
-    locationInfo.city,
-    CONFIG.RAPIDAPI_KEY
-  ); // weather object
+  const weatherInfo = await fetchWeather(locationInfo.city, RAPIDAPI_KEY); // weather object
 
   const weatherIcon = document.querySelector('#weather_icon');
   weatherIcon.setAttribute(
