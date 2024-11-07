@@ -19,21 +19,18 @@ jobs:
         with:
           node-version: '20'
 
-      - name: Create js directory
-        run: mkdir -p js
-
       - name: Create config file
         run: |
-          echo "const CONFIG = {" > js/config.js
-          echo "  RAPIDAPI_KEY: '${{ secrets.RAPIDAPI_KEY }}'" >> js/config.js
-          echo "};" >> js/config.js
+          echo "const CONFIG = {" > config.js
+          echo "  RAPIDAPI_KEY: '${{ secrets.RAPIDAPI_KEY }}'" >> config.js
+          echo "};" >> config.js
 
       - name: List files
         run: |
           echo "Current directory structure:"
           ls -R
           echo "Contents of config.js:"
-          cat js/config.js
+          cat config.js
 
       - name: Deploy
         uses: JamesIves/github-pages-deploy-action@v4
