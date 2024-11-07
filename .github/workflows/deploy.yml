@@ -21,15 +21,17 @@ jobs:
 
       - name: Create config file
         run: |
-          echo "const CONFIG = {" > config.js
-          echo "  RAPIDAPI_KEY: '${{ secrets.RAPIDAPI_KEY }}'" >> config.js
-          echo "};" >> config.js
+          cat > config.js << 'EOL'
+          const CONFIG = {
+            RAPIDAPI_KEY: '${{ secrets.RAPIDAPI_KEY }}'
+          };
+          EOL
 
-      - name: List files
+      - name: Verify files
         run: |
-          echo "Current directory structure:"
-          ls -R
-          echo "Contents of config.js:"
+          echo "=== Directory contents ==="
+          ls -la
+          echo "=== Config.js contents ==="
           cat config.js
 
       - name: Deploy
@@ -37,3 +39,4 @@ jobs:
         with:
           folder: .
           branch: gh-pages
+          clean: true
